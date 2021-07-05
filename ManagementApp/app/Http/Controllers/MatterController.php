@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ModelsMatter;
+use App\Models\Matter;
 use Illuminate\Http\Request;
 
 class MatterController extends Controller
@@ -15,6 +15,8 @@ class MatterController extends Controller
     public function index()
     {
         //
+        $matters = Matter::paginate(20);
+        return view('matter.index',compact('matters'));
     }
 
     /**
