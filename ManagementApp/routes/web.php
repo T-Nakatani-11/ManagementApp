@@ -20,3 +20,10 @@ Route::get('/', function () {
 Route::get('/test/{id}', function ($id) {
     return $id;
 })->where('id','[0-9]+');
+
+
+Route::get('matter', 'App\Http\Controllers\MatterController@index');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
