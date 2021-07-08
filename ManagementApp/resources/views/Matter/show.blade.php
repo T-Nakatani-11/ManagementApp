@@ -10,33 +10,28 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">案件一覧</div>
+                <div class="card-header">案件詳細</div>
                     <div class="d-flex justify-content-end">
-                    {{$matters->links()}}
-                    </div>
-                    <div class="d-flex justify-content-end">
-                    @if (count($matters) >0)
-                        <p>{{ $matters->total() }}件中 
-                        {{  ($matters->currentPage() -1) * $matters->perPage() + 1}} - 
-                        {{ (($matters->currentPage() -1) * $matters->perPage() + 1) + (count($matters) -1)  }}件</p>
-                    @else
-                        <p>データがありません。</p>
-                    @endif
-                    </div>
                 <div class="card-body">
                     <table class = "table">
                         <thread>
                             <tr>
-                                <th>ID</th>
-                                <th>タイトル</th>
+                                <th class = "w-25">タイトル</th>
+                                <th>{{$matter->title}}</th>
+                            </tr>
+                            <tr>
+                                <th>URL</th>
+                                <th><a href="{{$matter->url}}">{{$matter->url}}</a></th>
+                            </tr>
+                            <tr>
+                                <th>内容</th>
+                                <th>{{$matter->content}}</th>
+                            </tr>
+                            <tr>
+                                <th>更新日</th>
+                                <th>{{$matter->created_at->format('Y/m/d')}}</th>
                             </tr>
                         </thread>
-                        @foreach($matters as $matter)
-                        <tr>
-                            <td>{{$matter->id}}</td>
-                            <td><a href="{{route('detail',$matter->id)}}">{{$matter->title}}</a></td>
-                        </tr>
-                        @endforeach
                     </table>
                 </div>
             </div>

@@ -48,7 +48,7 @@ class MatterController extends Controller
      */
     public function show(Matter $matter)
     {
-        //
+        return view('matter.show',compact('matter'));
     }
 
     /**
