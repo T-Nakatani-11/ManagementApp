@@ -21,7 +21,6 @@ Route::get('/test/{id}', function ($id) {
     return $id;
 })->where('id','[0-9]+');
 
-
 Route::get('matter', 'App\Http\Controllers\MatterController@index');
 Route::get('matter/{matter}', 'App\Http\Controllers\MatterController@show')->name('detail');
 
