@@ -27,6 +27,7 @@ class MatterController extends Controller
     public function create()
     {
         //
+        return view('Matter.create');
     }
 
     /**
@@ -38,6 +39,18 @@ class MatterController extends Controller
     public function store(Request $request)
     {
         //
+        $inputs = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            Matter::create($inputs);
+            \DB::commit();
+        } catch(\Throwable $e) {
+            \DB::rollback();
+            // abort(500);
+        }
+        \Session::flash('err_msg', '案件を登録しました。');
+        return redirect(route('matters.index'));
     }
 
     /**
