@@ -24,6 +24,9 @@
                     @endif
                     </div>
                 <div class="card-body">
+                    <div class="mb-3">
+                        <button type="button" class="btn btn-primary" onClick="location.href='/matters/create'">新規作成</button>
+                    </div>
                     <table class = "table">
                         <thread>
                             <tr>
@@ -34,7 +37,7 @@
                         @foreach($matters as $matter)
                         <tr>
                             <td>{{$matter->id}}</td>
-                            <td><a href="{{route('detail',$matter->id)}}">{{$matter->title}}</a></td>
+                            <td><a href="{{route('matters.show',$matter->id)}}">{{$matter->title}}</a></td>
                         </tr>
                         @endforeach
                     </table>
