@@ -26,6 +26,8 @@ Route::get('/test/{id}', function ($id) {
 //  Route::post('matter/', 'App\Http\Controllers\MatterController@store')->name('add');
 Route::resource('matters','App\Http\Controllers\MatterController');
 
+Route::post('matters/export','App\Http\Controllers\MatterController@export')->name('export'); 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
