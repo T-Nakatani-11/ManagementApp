@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Matter;
 use Illuminate\Http\Request;
+use App\Exports\MatterExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MatterController extends Controller
 {
@@ -97,4 +99,9 @@ class MatterController extends Controller
     {
         //
     }
+
+    public function export(){
+	    return Excel::download(new MatterExport, 'matters.xlsx'); 
+    }
+
 }

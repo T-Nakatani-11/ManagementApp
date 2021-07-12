@@ -27,6 +27,12 @@
                     <div class="mb-3">
                         <button type="button" class="btn btn-primary" onClick="location.href='/matters/create'">新規作成</button>
                     </div>
+                    <div class="mb-4">
+                        <form method="post" action="/matters/export">
+                        @csrf
+                        <input type="submit" value="案件データダウンロード">
+                        </form>
+                    </div>
                     <table class = "table">
                         <thread>
                             <tr>
