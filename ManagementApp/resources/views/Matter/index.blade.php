@@ -38,12 +38,16 @@
                             <tr>
                                 <th>ID</th>
                                 <th>タイトル</th>
+                                <th>アクション</th>
+                                <th></th>
                             </tr>
                         </thread>
                         @foreach($matters as $matter)
                         <tr>
                             <td>{{$matter->id}}</td>
-                            <td><a href="{{route('matters.show',$matter->id)}}">{{$matter->title}}</a></td>
+                            <td><a href="{{$matter->url}}">{{$matter->title}}</a></td>
+                            <td><a href="{{route('matters.show',$matter)}}" class="btn btn-secondary btn-sm">表示</a></td>
+                            <td><a href="{{route('matters.edit',$matter)}}" class="btn btn-secondary btn-sm">編集</a></td>
                         </tr>
                         @endforeach
                     </table>

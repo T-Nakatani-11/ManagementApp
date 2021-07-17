@@ -75,6 +75,7 @@ class MatterController extends Controller
     public function edit(Matter $matter)
     {
         //
+        return view('Matter.edit',compact('matter'));
     }
 
     /**
@@ -87,6 +88,19 @@ class MatterController extends Controller
     public function update(Request $request, Matter $matter)
     {
         //
+        $inputs = $request->all();
+
+        \DB::beginTransaction();
+        try {
+            $matter->update($inputs);
+            \DB::commit();
+        } catch(\Throwable $e) {
+            \DB::rollback();
+            // abort(500);
+        }
+        \Session::flash('err_msg', '案件を登録しました。');
+        return redirect(route('matters.edit',$matter));
+
     }
 
     /**
