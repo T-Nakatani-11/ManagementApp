@@ -12,9 +12,10 @@
             <div class="card">
                 <div class="card-header">案件登録</div>
                 <div class="card-body">
-                    <form method="POST" action="{{route('matters.store')}}">
+                    <form method="POST" action="{{route('matters.update',$matter)}}">
+                        @method('PUT')
                         @csrf
-                        @include('matters.fields')
+                        @include('Matter.fields')
                     </form>
                 </div>
             </div>
