@@ -14,7 +14,7 @@
                 <div class="card-body">
                     <form method="POST" action="{{route('matters.store')}}">
                         @csrf
-                        @include('matters.fields')
+                        @include('matter.fields')
                     </form>
                 </div>
             </div>

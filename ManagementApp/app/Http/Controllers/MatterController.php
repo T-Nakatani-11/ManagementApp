@@ -18,7 +18,7 @@ class MatterController extends Controller
     {
         //
         $matters = Matter::paginate(20);
-        return view('matter.index',compact('matters'));
+        return view('Matter.index',compact('matters'));
     }
 
     /**
@@ -63,7 +63,7 @@ class MatterController extends Controller
      */
     public function show(Matter $matter)
     {
-        return view('matter.show',compact('matter'));
+        return view('Matter.show',compact('matter'));
     }
 
     /**
